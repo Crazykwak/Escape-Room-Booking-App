@@ -1,27 +1,27 @@
 package com.crazykwak.roombooking.user.repository;
 
-import com.crazykwak.roombooking.user.domain.UserGrade;
+import com.crazykwak.roombooking.user.domain.MemberGrade;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserUpdateDto {
+public class MemberUpdateDto {
 
     private String password;
     private String email;
     private String local;
     private String phoneNum;
-    private UserGrade userGrade;
+    private MemberGrade memberGrade;
 
-    public UserUpdateDto() {
+    public MemberUpdateDto() {
     }
 
-    public UserUpdateDto(String password, String email, String local, String phoneNum, UserGrade userGrade) {
+    public MemberUpdateDto(String password, String email, String local, String phoneNum, MemberGrade memberGrade) {
         this.password = password;
         this.email = email;
         this.local = local;
         this.phoneNum = phoneNum;
-        this.userGrade = userGrade;
+        this.memberGrade = memberGrade;
     }
 }

@@ -1,9 +1,8 @@
 package com.crazykwak.roombooking.user.repository.memory;
 
-import com.crazykwak.roombooking.user.domain.User;
-import com.crazykwak.roombooking.user.repository.UserRepository;
-import com.crazykwak.roombooking.user.repository.UserUpdateDto;
-import org.springframework.stereotype.Repository;
+import com.crazykwak.roombooking.user.domain.Member;
+import com.crazykwak.roombooking.user.repository.MemberRepository;
+import com.crazykwak.roombooking.user.repository.MemberUpdateDto;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,22 +10,22 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Repository
-public class MemoryRepository implements UserRepository {
+//@Repository
+public class MemoryRepository implements MemberRepository {
 
-    private final static Map<Long, User> store = new HashMap<>();
+    private final static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
 
     @Override
-    public User save(User user) {
+    public Member save(Member user) {
         user.setId(sequence++);
         store.put(user.getId(), user);
         return user;
     }
 
     @Override
-    public void update(Long userId, UserUpdateDto updateParam) {
-        User user = findById(userId).orElseThrow();
+    public void update(Long userId, MemberUpdateDto updateParam) {
+        Member user = findById(userId).orElseThrow();
         user.setPassword(updateParam.getPassword());
         user.setLocal(updateParam.getLocal());
         user.setEmail(updateParam.getEmail());
@@ -39,13 +38,13 @@ public class MemoryRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(Long userId) {
-        User user = store.get(userId);
+    public Optional<Member> findById(Long userId) {
+        Member user = store.get(userId);
         return Optional.ofNullable(user);
     }
 
     @Override
-    public List<User> findAll() {
+    public List<Member> findAll() {
         return  store.values().stream().collect(Collectors.toList());
     }
 
