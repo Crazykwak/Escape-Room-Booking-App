@@ -1,9 +1,8 @@
-package com.crazykwak.roombooking.user.service;
+package com.crazykwak.roombooking.member.service;
 
-import com.crazykwak.roombooking.user.domain.Member;
-import com.crazykwak.roombooking.user.repository.MemberRepository;
-import com.crazykwak.roombooking.user.repository.MemberUpdateDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.crazykwak.roombooking.member.domain.Member;
+import com.crazykwak.roombooking.member.repository.MemberRepository;
+import com.crazykwak.roombooking.member.repository.MemberUpdateDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +41,11 @@ public class MemberServiceV1 implements MemberService {
     @Override
     public List<Member> findUsers() {
         return repository.findAll();
+    }
+
+    @Override
+    public Member findByUserId(String userId) {
+        Member findMember = repository.findByUserId(userId);
+        return findMember;
     }
 }

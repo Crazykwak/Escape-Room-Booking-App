@@ -1,20 +1,17 @@
-package com.crazykwak.roombooking.user.service;
+package com.crazykwak.roombooking.member.service;
 
-import com.crazykwak.roombooking.user.domain.Member;
-import com.crazykwak.roombooking.user.repository.MemberRepository;
-import com.crazykwak.roombooking.user.repository.MemberUpdateDto;
+import com.crazykwak.roombooking.member.domain.Member;
+import com.crazykwak.roombooking.member.repository.MemberUpdateDto;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-import static com.crazykwak.roombooking.user.domain.MemberGrade.*;
+import static com.crazykwak.roombooking.member.domain.MemberGrade.*;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
@@ -71,6 +68,13 @@ class MemberServiceV1Test {
         service.save(userB);
         List<Member> all = service.findUsers();
         assertThat(all.size()).isEqualTo(2);
+    }
 
+    @Test
+    void findByUserId() {
+        Member userA = new Member("kwak", "1234!", "email@mail.com", "성남", "01033332222", NOOB);
+        service.save(userA);
+        Member kwak = service.findByUserId("kwak");
+        assertThat(kwak.getUserId()).isEqualTo(userA.getUserId());
     }
 }

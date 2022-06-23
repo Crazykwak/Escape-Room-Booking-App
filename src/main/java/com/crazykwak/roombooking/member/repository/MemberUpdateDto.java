@@ -1,6 +1,6 @@
-package com.crazykwak.roombooking.user.repository;
+package com.crazykwak.roombooking.member.repository;
 
-import com.crazykwak.roombooking.user.domain.MemberGrade;
+import com.crazykwak.roombooking.member.domain.MemberGrade;
 import lombok.Getter;
 import lombok.Setter;
 

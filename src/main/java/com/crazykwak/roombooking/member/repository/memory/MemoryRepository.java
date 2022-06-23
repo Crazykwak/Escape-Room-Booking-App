@@ -1,8 +1,9 @@
-package com.crazykwak.roombooking.user.repository.memory;
+package com.crazykwak.roombooking.member.repository.memory;
 
-import com.crazykwak.roombooking.user.domain.Member;
-import com.crazykwak.roombooking.user.repository.MemberRepository;
-import com.crazykwak.roombooking.user.repository.MemberUpdateDto;
+import com.crazykwak.roombooking.member.domain.Member;
+import com.crazykwak.roombooking.member.repository.MemberRepository;
+import com.crazykwak.roombooking.member.repository.MemberUpdateDto;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,5 +52,10 @@ public class MemoryRepository implements MemberRepository {
     @Override
     public void clear() {
         store.clear();
+    }
+
+    @Override
+    public Member findByUserId(String userId) {
+        return null;
     }
 }

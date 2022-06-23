@@ -1,4 +1,4 @@
-package com.crazykwak.roombooking.user.domain;
+package com.crazykwak.roombooking.member.domain;
 
 import lombok.Getter;
 import lombok.Setter;

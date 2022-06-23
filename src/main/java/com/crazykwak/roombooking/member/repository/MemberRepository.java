@@ -1,6 +1,6 @@
-package com.crazykwak.roombooking.user.repository;
+package com.crazykwak.roombooking.member.repository;
 
-import com.crazykwak.roombooking.user.domain.Member;
+import com.crazykwak.roombooking.member.domain.Member;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,5 +13,6 @@ public interface MemberRepository {
     Optional<Member> findById(Long userId);
     List<Member> findAll();
     void clear();
+    Member findByUserId(String userId);
 
 }

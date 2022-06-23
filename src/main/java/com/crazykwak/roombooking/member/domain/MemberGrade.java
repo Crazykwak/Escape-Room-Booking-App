@@ -1,4 +1,4 @@
-package com.crazykwak.roombooking.user.domain;
+package com.crazykwak.roombooking.member.domain;
 
 public enum MemberGrade {
     NOOB,
