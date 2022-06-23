@@ -26,17 +26,21 @@ public class LoginController {
     @PostMapping("/login")
     public String loginMember(@Validated @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletRequest request) {
         if(bindingResult.hasErrors()) {
+            log.info("로그인 실패!!! = {}");
             return "home";
         }
 
         Member login = loginService.login(form.getLoginId(), form.getPassword());
         if(login == null) {
         bindingResult.reject("loginFail");
-        return "home";
+        log.info("로그인 실패! = {}");
+
+            return "home";
         }
 
         HttpSession session = request.getSession();
         session.setAttribute("LOGIN_MEMBER", login);
+        log.info("로그인 성공! = {}", login.getUserId());
 
         return "home";
     }
