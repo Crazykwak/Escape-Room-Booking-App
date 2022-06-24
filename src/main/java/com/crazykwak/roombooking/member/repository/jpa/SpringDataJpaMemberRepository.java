@@ -37,8 +37,8 @@ public class SpringDataJpaMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> findById(Long userId) {
-        return repository.findById(userId);
+    public Optional<Member> findById(Long id) {
+        return repository.findById(id);
     }
 
     @Override
@@ -52,10 +52,8 @@ public class SpringDataJpaMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Member findByUserId(String userId) {
-        Member findMember = repository.findByUserId(userId);
-
-        return findMember;
+    public Optional<Member> findByUserId(String userId) {
+         return repository.findByUserId(userId);
     }
 
 

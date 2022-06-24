@@ -1,26 +1,33 @@
 package com.crazykwak.roombooking.login;
 
 import com.crazykwak.roombooking.member.domain.Member;
+import com.crazykwak.roombooking.member.repository.MemberRepository;
 import com.crazykwak.roombooking.member.repository.jpa.SpringDataJpaMemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LoginService {
 
-    private final SpringDataJpaMemberRepository repository;
+    @Autowired
+    private final MemberRepository repository;
 
     public Member login(String userId, String password) {
 
-        Member findMember = repository.findByUserId(userId);
+        Optional<Member> findMember = repository.findByUserId(userId);
 
-        if(findMember.getPassword() == password) {
-            return findMember;
-        } else {
-            return null;
+        if(findMember.isPresent()) {
+            Member member = findMember.orElseThrow();
+            if (member.getPassword().equals(password)) {
+                return findMember.orElseThrow();
+            }
         }
-
-
+        return null;
     }
 }

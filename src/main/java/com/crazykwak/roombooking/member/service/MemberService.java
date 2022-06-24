@@ -13,5 +13,5 @@ public interface MemberService {
     void delete(Long userId);
     Optional<Member> findById(Long id);
     List<Member> findUsers();
-    Member findByUserId(String userId);
+    Optional<Member> findByUserId(String userId);
 }

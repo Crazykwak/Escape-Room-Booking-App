@@ -55,7 +55,7 @@ public class MemoryRepository implements MemberRepository {
     }
 
     @Override
-    public Member findByUserId(String userId) {
+    public Optional<Member> findByUserId(String userId) {
         return null;
     }
 }

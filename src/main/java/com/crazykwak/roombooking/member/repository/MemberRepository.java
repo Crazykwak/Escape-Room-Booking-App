@@ -13,6 +13,6 @@ public interface MemberRepository {
     Optional<Member> findById(Long userId);
     List<Member> findAll();
     void clear();
-    Member findByUserId(String userId);
+    Optional<Member> findByUserId(String userId);
 
 }

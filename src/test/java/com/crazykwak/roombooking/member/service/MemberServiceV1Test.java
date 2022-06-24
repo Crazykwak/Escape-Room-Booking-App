@@ -74,7 +74,7 @@ class MemberServiceV1Test {
     void findByUserId() {
         Member userA = new Member("kwak", "1234!", "email@mail.com", "성남", "01033332222", NOOB);
         service.save(userA);
-        Member kwak = service.findByUserId("kwak");
+        Member kwak = service.findByUserId("kwak").orElseThrow();
         assertThat(kwak.getUserId()).isEqualTo(userA.getUserId());
     }
 }
