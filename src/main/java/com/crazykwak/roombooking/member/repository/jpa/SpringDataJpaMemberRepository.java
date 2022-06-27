@@ -2,7 +2,7 @@ package com.crazykwak.roombooking.member.repository.jpa;
 
 import com.crazykwak.roombooking.member.domain.Member;
 import com.crazykwak.roombooking.member.repository.MemberRepository;
-import com.crazykwak.roombooking.member.repository.MemberUpdateDto;
+import com.crazykwak.roombooking.member.dto.MemberUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -24,10 +24,18 @@ public class SpringDataJpaMemberRepository implements MemberRepository {
     @Override
     public void update(Long userId, MemberUpdateDto updateParam) {
         Member user = repository.findById(userId).orElseThrow();
-        user.setPassword(updateParam.getPassword());
-        user.setPhoneNum(updateParam.getPhoneNum());
-        user.setEmail(updateParam.getEmail());
-        user.setLocal(updateParam.getLocal());
+        if(updateParam.getPassword() != null) {
+            user.setPassword(updateParam.getPassword());
+        }
+        if(updateParam.getPhoneNum() != null) {
+            user.setPhoneNum(updateParam.getPhoneNum());
+        }
+        if(updateParam.getEmail() != null) {
+            user.setEmail(updateParam.getEmail());
+        }
+        if(updateParam.getLocal() != null) {
+            user.setLocal(updateParam.getLocal());
+        }
     }
 
     @Override

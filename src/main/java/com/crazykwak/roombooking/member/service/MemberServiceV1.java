@@ -2,7 +2,7 @@ package com.crazykwak.roombooking.member.service;
 
 import com.crazykwak.roombooking.member.domain.Member;
 import com.crazykwak.roombooking.member.repository.MemberRepository;
-import com.crazykwak.roombooking.member.repository.MemberUpdateDto;
+import com.crazykwak.roombooking.member.dto.MemberUpdateDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

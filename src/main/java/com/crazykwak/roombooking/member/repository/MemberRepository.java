@@ -1,6 +1,7 @@
 package com.crazykwak.roombooking.member.repository;
 
 import com.crazykwak.roombooking.member.domain.Member;
+import com.crazykwak.roombooking.member.dto.MemberUpdateDto;
 
 import java.util.List;
 import java.util.Optional;

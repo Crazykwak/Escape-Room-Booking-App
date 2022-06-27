@@ -7,4 +7,5 @@ public enum MemberGrade {
     GURU,
     LEGEND,
     COMPANY,
+    MASTER,
 }

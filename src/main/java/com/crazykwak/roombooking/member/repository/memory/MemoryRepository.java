@@ -2,8 +2,7 @@ package com.crazykwak.roombooking.member.repository.memory;
 
 import com.crazykwak.roombooking.member.domain.Member;
 import com.crazykwak.roombooking.member.repository.MemberRepository;
-import com.crazykwak.roombooking.member.repository.MemberUpdateDto;
-import org.springframework.stereotype.Repository;
+import com.crazykwak.roombooking.member.dto.MemberUpdateDto;
 
 import java.util.HashMap;
 import java.util.List;

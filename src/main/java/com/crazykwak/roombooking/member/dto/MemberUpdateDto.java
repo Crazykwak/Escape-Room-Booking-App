@@ -1,4 +1,4 @@
-package com.crazykwak.roombooking.member.repository;
+package com.crazykwak.roombooking.member.dto;
 
 import com.crazykwak.roombooking.member.domain.MemberGrade;
 import lombok.Getter;
@@ -12,7 +12,6 @@ public class MemberUpdateDto {
     private String email;
     private String local;
     private String phoneNum;
-    private MemberGrade memberGrade;
 
     public MemberUpdateDto() {
     }
@@ -22,6 +21,5 @@ public class MemberUpdateDto {
         this.email = email;
         this.local = local;
         this.phoneNum = phoneNum;
-        this.memberGrade = memberGrade;
     }
 }
