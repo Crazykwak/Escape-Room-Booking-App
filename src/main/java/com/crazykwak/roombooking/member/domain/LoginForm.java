@@ -1,4 +1,4 @@
-package com.crazykwak.roombooking.login;
+package com.crazykwak.roombooking.member.domain;
 
 import javax.validation.constraints.NotEmpty;
 

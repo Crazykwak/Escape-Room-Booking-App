@@ -1,14 +1,15 @@
 package com.crazykwak.roombooking.member.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Table (name = "member")
 @Entity
-@Getter
-@Setter
+@Getter @Setter
+@NoArgsConstructor
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +27,6 @@ public class Member {
     @Enumerated(EnumType.STRING)
     @Column(name = "user_grade")
     private MemberGrade memberGrade;
-
-    public Member() {
-    }
 
     public Member(String userId, String password, String email, String local, String phoneNum, MemberGrade memberGrade) {
         this.userId = userId;

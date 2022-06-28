@@ -7,8 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 public class Tag {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

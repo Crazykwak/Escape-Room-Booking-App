@@ -1,8 +1,7 @@
-package com.crazykwak.roombooking.login;
+package com.crazykwak.roombooking.member.service;
 
 import com.crazykwak.roombooking.member.domain.Member;
 import com.crazykwak.roombooking.member.repository.MemberRepository;
-import com.crazykwak.roombooking.member.repository.jpa.SpringDataJpaMemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.crazykwak.roombooking.controller;
+package com.crazykwak.roombooking;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
