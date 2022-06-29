@@ -12,9 +12,6 @@ public class Tag {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String name;
+    String tagName;
 
-    @ManyToOne
-    @JoinColumn(name = "theme_id")
-    Themes themes;
 }
