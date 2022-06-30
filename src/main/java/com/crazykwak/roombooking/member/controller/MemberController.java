@@ -2,7 +2,8 @@ package com.crazykwak.roombooking.member.controller;
 
 import com.crazykwak.roombooking.member.domain.LoginForm;
 import com.crazykwak.roombooking.member.domain.Member;
-import com.crazykwak.roombooking.member.service.LoginService;
+import com.crazykwak.roombooking.member.dto.LoginDTO;
+import com.crazykwak.roombooking.member.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,35 +19,30 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
-public class LoginController {
+public class MemberController {
 
     @Autowired
-    LoginService loginService;
+    MemberService memberService;
 
     @PostMapping("/login")
     public String loginMember(@Validated @ModelAttribute LoginForm form,
                               BindingResult bindingResult,
                               @RequestParam(defaultValue = "/") String redirectURL,
-                              HttpServletRequest request) {
-        if (bindingResult.hasErrors()) {
-            log.info("로그인 실패! 검증! = {}" + bindingResult.toString());
-            return "/login/loginForm";
-        }
+                              HttpServletRequest request,
+                              HttpSession session) {
 
-        log.info("form = {}", form.getLoginId());
-        log.info("form = {}", form.getPassword());
-
-        Member loginMem = loginService.login(form.getLoginId(), form.getPassword());
+        LoginDTO dto = new LoginDTO(form.getLoginId(), form.getPassword());
+        Member loginMem = memberService.login(dto);
 
         if (loginMem == null) {
-            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
-            log.info("비밀번호 안맞아!! = {}");
+            bindingResult.reject("LOGIN_FAIL", "아이디 또는 비밀번호가 맞지 않습니다.");
             return "/login/loginForm";
         }
 
-        HttpSession session = request.getSession();
+        if (session.getAttribute("LOGIN") != null) {
+            session.removeAttribute("LOGIN");
+        }
         session.setAttribute("LOGIN", loginMem);
-        log.info("로그인 성공! = {}", loginMem.getUserId());
 
         return "redirect:" + redirectURL;
     }

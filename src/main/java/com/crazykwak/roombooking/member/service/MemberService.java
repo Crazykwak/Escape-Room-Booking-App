@@ -1,17 +1,29 @@
 package com.crazykwak.roombooking.member.service;
 
 import com.crazykwak.roombooking.member.domain.Member;
-import com.crazykwak.roombooking.member.dto.MemberUpdateDto;
+import com.crazykwak.roombooking.member.dto.LoginDTO;
+import com.crazykwak.roombooking.member.repository.MemberRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
-public interface MemberService {
+@Service
+@Slf4j
+public class MemberService {
 
-    Member save(Member user);
-    void update(Long userId, MemberUpdateDto updateParam);
-    void delete(Long userId);
-    Optional<Member> findById(Long id);
-    List<Member> findUsers();
-    Optional<Member> findByUserId(String userId);
+    @Autowired
+    private MemberRepository repository;
+
+    public Member login(LoginDTO dto) {
+        Optional<Member> loginResult = repository.login(dto);
+        if (loginResult.isEmpty()) {
+            return null;
+        }
+
+        return loginResult.get();
+    }
+
+
 }

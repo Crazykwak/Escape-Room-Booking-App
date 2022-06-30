@@ -3,11 +3,10 @@ package com.crazykwak.roombooking.store.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 public class StoreSearchCond {
 
-    String storeName;
-    Long franchiseId;
+    private String storeName;
+    private Long franchiseId;
 
 }
