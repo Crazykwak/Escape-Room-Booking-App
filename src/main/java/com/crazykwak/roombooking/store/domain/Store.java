@@ -23,7 +23,7 @@ public class Store {
     String address;
     String info;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "franchise_id")
     Franchise franchise;
 
