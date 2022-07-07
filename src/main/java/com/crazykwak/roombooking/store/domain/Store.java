@@ -1,12 +1,15 @@
 package com.crazykwak.roombooking.store.domain;
 
 import com.crazykwak.roombooking.franchise.domain.Franchise;
+import com.crazykwak.roombooking.themes.domain.Themes;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,9 +26,12 @@ public class Store {
     String address;
     String info;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "franchise_id")
     Franchise franchise;
+
+    @OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
+    List<Themes> themesList = new ArrayList<>();
 
     public Store(String storeName, String tel, String address, String info, Franchise franchise) {
         this.storeName = storeName;

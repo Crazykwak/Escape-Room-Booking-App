@@ -2,6 +2,7 @@ package com.crazykwak.roombooking.themes.service;
 
 import com.crazykwak.roombooking.exception.BusinessException;
 import com.crazykwak.roombooking.franchise.domain.Franchise;
+import com.crazykwak.roombooking.franchise.service.FranchiseService;
 import com.crazykwak.roombooking.store.domain.Store;
 import com.crazykwak.roombooking.store.service.StoreService;
 import com.crazykwak.roombooking.store.service.StoreServiceV1;
@@ -28,6 +29,8 @@ class ThemesServiceTest {
     ThemesService service;
     @Autowired
     StoreService storeService;
+    @Autowired
+    FranchiseService franchiseService;
 
     @Test
     void save() {
@@ -66,14 +69,22 @@ class ThemesServiceTest {
 
     @Test
     void findAllThemes() {
-        Store store = new Store("넥스트에디션 서현점", "010-1111-1111", "건대점", "하이", new Franchise());
-        Themes themes3 = new Themes("몬스터", "별5개", 4, 75, store);
-        Themes themes4 = new Themes("말랑말랑", "별5개", 4, 75, store);
+        Franchise franchise = new Franchise("넥스트에디션", "강남구", "010-1111-1111", "asdf.com");
+        Franchise fsave = franchiseService.save(franchise);
+        Store store = new Store("넥스트에디션 서현점", "010-1111-1111", "건대점", "하이", fsave);
+        Store save = storeService.save(store);
+        Themes themes3 = new Themes("몬스터", "별5개", 4, 75, save);
+        Themes themes4 = new Themes("말랑말랑", "별5개", 4, 75, save);
 
         service.save(themes3);
         service.save(themes4);
 
         List<Themes> allThemes = service.findAllThemes();
         assertThat(2).isEqualTo(allThemes.size());
+
+        
     }
+
+
+
 }
