@@ -6,10 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "themes_time")
 @Getter
 @Setter
 public class ThemesTime {
@@ -18,7 +17,7 @@ public class ThemesTime {
     Long id;
 
     @Column(name = "start_time")
-    Time startTime;
+    LocalDateTime startTime;
 
     Integer round;
 
