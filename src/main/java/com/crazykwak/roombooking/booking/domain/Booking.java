@@ -15,7 +15,7 @@ public class Booking {
     String payment;
     Long price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "member_id")
     Member member;
 }
