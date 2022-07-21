@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: header"/>
+<style>
+.fieldError {
+border-color: red;
+color : red;
+ }
+</style>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <form role="form" action="/members/new" th:object="${memberForm}" method="post">
+        <div class="form-group">
+            <label th:for="userId">이름</label>
+            <input type="text" th:field="*{userId}" class="form-control"
+                   placeholder="이름을 입력하세요"
+                   th:class="${#fields.hasErrors('userId')}? 'form-control fieldError' : 'form-control'">
+            <p th:if="${#fields.hasErrors('userId')}"
+               th:class="${#fields.hasErrors('userId')}? 'fieldError': ''"
+               th:errors="*{userId}">Incorrect date</p>
+        </div>
+        <div class="form-group">
+            <label th:for="password">비밀번호</label>
+            <input type="text" th:field="*{password}" class="form-control"
+                   placeholder="이름을 입력하세요"
+                   th:class="${#fields.hasErrors('password')}? 'form-control fieldError' : 'form-control'">
+            <p th:if="${#fields.hasErrors('password')}"
+               th:class="${#fields.hasErrors('password')}? 'fieldError': ''"
+               th:errors="*{password}">Incorrect date</p>
+        </div>
+        <div class="form-group">
+            <label th:for="email">이메일</label>
+            <input type="text" th:field="*{email}"
+                   th:class="${#fields.hasErrors('email')}? 'form-control fieldError' : 'form-control'"
+                   placeholder="이메일을 입력하세요.">
+        </div>
+        <div class="form-group">
+            <label th:for="local">지역</label>
+            <input type="text" th:field="*{local}" class="form-control"
+                   placeholder="활동 지역을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label th:for="phoneNum">휴대전화번호</label>
+            <input type="text" th:field="*{phoneNum}"
+                   th:class="${#fields.hasErrors('phoneNum')}? 'form-control fieldError' : 'form-control'"
+                   placeholder="휴대전화번호를 입력하세요">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br/>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>

@@ -3,26 +3,31 @@ package com.crazykwak.roombooking.member.controller;
 import com.crazykwak.roombooking.member.domain.LoginForm;
 import com.crazykwak.roombooking.member.domain.Member;
 import com.crazykwak.roombooking.member.dto.LoginDTO;
+import com.crazykwak.roombooking.member.dto.MemberForm;
+import com.crazykwak.roombooking.member.dto.MemberMapper;
+import com.crazykwak.roombooking.member.repository.MemberRepository;
 import com.crazykwak.roombooking.member.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
+@RequestMapping("/members")
+@RequiredArgsConstructor
 public class MemberController {
 
-    @Autowired
-    MemberService memberService;
+    private final MemberService memberService;
+    private final MemberRepository memberRepository;
+    private final MemberMapper mapper;
 
     @PostMapping("/login")
     public String loginMember(@Validated @ModelAttribute LoginForm form,
@@ -52,4 +57,20 @@ public class MemberController {
         return "login/loginForm";
     }
 
+    @GetMapping("/new")
+    public String joinForm(Model model) {
+        model.addAttribute("memberForm", new MemberForm());
+        return "/members/createMemberForm";
+    }
+
+    @PostMapping("/new")
+    public String join(@ModelAttribute @Validated MemberForm memberForm,
+                       BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "/members/createMemberForm";
+        }
+        Member member = mapper.memberFormToMember(memberForm);
+        memberService.join(member);
+        return "redirect:/";
+    }
 }
