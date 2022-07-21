@@ -9,7 +9,8 @@ public enum ExceptionCode {
     THEMES_NOT_FOUND(404, "테마가 존재하지 않습니다."),
     THEMESTAG_NOT_FOUND(404, "테마,태그 테이블이 없습니다."),
     TAG_NOT_FOUND(404, "태그가 없습니다."),
-    THEMESTIME_NOT_FOUND(404, "존재하지 않는 예약 시간 입니다.");
+    THEMESTIME_NOT_FOUND(404, "존재하지 않는 예약 시간 입니다."),
+    MEMBER_NOT_FOUND(404, "없는 회원입니다.");
 
     @Getter
     private int status;

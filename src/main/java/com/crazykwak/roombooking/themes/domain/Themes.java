@@ -1,11 +1,14 @@
 package com.crazykwak.roombooking.themes.domain;
 
 import com.crazykwak.roombooking.store.domain.Store;
+import com.crazykwak.roombooking.themestime.domain.ThemesTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,15 +16,19 @@ import javax.persistence.*;
 public class Themes {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
-    String hard;
-    Integer people;
-    Integer time;
+    @Column(name = "themes_id")
+    private Long id;
+    private String name;
+    private String hard;
+    private Integer people;
+    private Integer time;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
-    Store store;
+    private Store store;
+
+    @OneToMany(mappedBy = "themes")
+    private List<ThemesTime> themesTimes = new ArrayList<>();
 
     public void setName(String name) {
         this.name = name;

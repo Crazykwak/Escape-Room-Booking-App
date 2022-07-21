@@ -14,19 +14,22 @@ import java.time.LocalDateTime;
 public class ThemesTime {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    @Column(name = "themes_time_id")
+    private Long id;
 
     @Column(name = "start_time")
-    LocalDateTime startTime;
+    private LocalDateTime startTime;
 
-    Integer round;
+    private Integer round;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "themes_id")
-    Themes themes;
+    private Themes themes;
 
-    @OneToOne
-    @JoinColumn(name = "booking_id")
-    Booking booking;
+    @OneToOne(mappedBy = "themesTime")
+    private Booking booking;
 
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
 }

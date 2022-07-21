@@ -2,6 +2,8 @@ package com.crazykwak.roombooking.exception;
 
 import lombok.Getter;
 
+import java.util.function.Supplier;
+
 public class BusinessException extends RuntimeException {
 
     @Getter
