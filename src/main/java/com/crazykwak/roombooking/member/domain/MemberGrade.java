@@ -1,11 +1,11 @@
 package com.crazykwak.roombooking.member.domain;
 
 public enum MemberGrade {
-    NOOB,
-    JUNIOR,
-    SENIOR,
-    GURU,
-    LEGEND,
-    COMPANY,
-    MASTER,
+    ROLE_NOOB,
+    ROLE_JUNIOR,
+    ROLE_SENIOR,
+    ROLE_GURU,
+    ROLE_LEGEND,
+    ROLE_COMPANY,
+    ROLE_MASTER,
 }

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table (name = "member")
 @Entity
@@ -15,8 +16,8 @@ public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private String userId;
+    @Column
+    private String username;
     private String password;
     private String email;
     private String local;
@@ -28,8 +29,8 @@ public class Member {
     @Column(name = "user_grade")
     private MemberGrade memberGrade;
 
-    public Member(String userId, String password, String email, String local, String phoneNum, MemberGrade memberGrade) {
-        this.userId = userId;
+    public Member(String username, String password, String email, String local, String phoneNum, MemberGrade memberGrade) {
+        this.username = username;
         this.password = password;
         this.email = email;
         this.local = local;

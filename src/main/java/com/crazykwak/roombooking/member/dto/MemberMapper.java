@@ -5,6 +5,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface MemberMapper {
-    //아직 안씀
     Member memberFormToMember(MemberForm memberForm);
 }

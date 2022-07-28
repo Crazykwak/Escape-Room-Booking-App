@@ -4,9 +4,6 @@
 <meta charset="utf-8">
 <head th:replace="fragments/header :: header"/>
 <style>
-.container {
-max-width: 560px;
-}
 .field-error {
  border-color: #dc3545; color: #dc3545;
 }
@@ -15,6 +12,7 @@ max-width: 560px;
 <body>
 
 <div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <div class="py-5 text-center">
         <h2>로그인</h2>
     </div>
@@ -25,10 +23,10 @@ max-width: 560px;
         </div>
 
         <div>
-        <label for="loginId">로그인 ID</label>
-        <input type="text" id="loginId" th:field="*{loginId}" class="form-control"
+        <label for="username">로그인 ID</label>
+        <input type="text" id="username" th:field="*{username}" class="form-control"
                th:errorclass="field-error">
-        <div class="field-error" th:errors="*{loginId}" />
+        <div class="field-error" th:errors="*{username}" />
         </div>
 
         <div>

@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 public class MemberForm {
 
     @NotEmpty
-    private String userId;
+    private String username;
 
     @NotEmpty
     private String password;

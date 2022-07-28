@@ -1,27 +1,18 @@
 package com.crazykwak.roombooking.member.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.NotEmpty;
 
+@Getter
+@Setter
 public class LoginForm {
 
     @NotEmpty
-    private String loginId;
+    private String username;
     @NotEmpty
     private String password;
 
-    public String getLoginId() {
-        return loginId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setLoginId(String loginId) {
-        this.loginId = loginId;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private MemberGrade memberGrade;
 }
