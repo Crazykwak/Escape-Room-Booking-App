@@ -9,8 +9,6 @@ import com.crazykwak.roombooking.tag.service.TagService;
 import com.crazykwak.roombooking.themes.domain.Themes;
 import com.crazykwak.roombooking.themes.service.ThemesService;
 import com.crazykwak.roombooking.themestag.domain.ThemesTag;
-import lombok.RequiredArgsConstructor;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

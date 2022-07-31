@@ -5,11 +5,8 @@ import com.crazykwak.roombooking.franchise.domain.Franchise;
 import com.crazykwak.roombooking.franchise.service.FranchiseService;
 import com.crazykwak.roombooking.store.domain.Store;
 import com.crazykwak.roombooking.store.service.StoreService;
-import com.crazykwak.roombooking.store.service.StoreServiceV1;
 import com.crazykwak.roombooking.themes.domain.Themes;
 import com.crazykwak.roombooking.themes.dto.ThemesUpdateDto;
-import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,11 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
-@Slf4j
 class ThemesServiceTest {
 
     @Autowired

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="header" th:fragment="bodyHeader">
-  <a href="/"><h3 class="text-muted talchul">탈출이</h3></a>
-
-  <nav class="nav nav-pills nav-justified">
-    <a class="nav-item nav-link active" href="/members/login">로그인</a>
-    <a class="nav-item nav-link" href="/members/new">회원 가입</a>
-    <a class="nav-item nav-link" href="#">예약</a>
-  </nav>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-2">
+                <a class="logo" href="/">탈출이</a>
+            </div>
+            <div class="col-10 text-end">
+                <button type="button" class="btn btn-dark" id="btn-login">로그인</button>
+                <button type="button" class="btn btn-dark" id="btn-signup">회원가입</button>
+            </div>
+        </div>
+    </div>
 </div>
