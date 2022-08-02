@@ -1,5 +1,6 @@
 package com.crazykwak.roombooking.member.controller;
 
+import com.crazykwak.roombooking.config.security.oauth.PrincipalDetails;
 import com.crazykwak.roombooking.member.domain.LoginForm;
 import com.crazykwak.roombooking.member.domain.Member;
 import com.crazykwak.roombooking.member.dto.LoginDTO;
@@ -11,6 +12,8 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,7 +25,6 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
-@RequestMapping("/members")
 @RequiredArgsConstructor
 @Data
 public class MemberController {

@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/header :: header"/>
 <body class="container">
 <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+<p sec:authorize="!isAuthenticated()">로그인 안됐지?</p>
+
+<div sec:authorize="isAuthenticated()">
+    <p sec:authentication="principal.authorities">권한</p>
+    <p sec:authentication="principal.username">이름</p>
+</div>
+
 </body>
 </html>

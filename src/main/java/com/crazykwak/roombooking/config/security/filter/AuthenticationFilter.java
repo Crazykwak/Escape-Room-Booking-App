@@ -29,7 +29,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         ObjectMapper om = new ObjectMapper();
         try {
             LoginForm loginForm = om.readValue(request.getInputStream(), LoginForm.class);
-            System.out.println("member = " + loginForm.getUsername());
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginForm.getUsername(), loginForm.getPassword());
 
             return authenticationManager.authenticate(authenticationToken);

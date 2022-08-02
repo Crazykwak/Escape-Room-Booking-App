@@ -33,6 +33,7 @@ dependencies {
 
 	//타임리프
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
 	//h2 DB
 	runtimeOnly 'com.h2database:h2'
