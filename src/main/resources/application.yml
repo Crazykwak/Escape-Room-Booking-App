@@ -1,0 +1,38 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/
+
+  resources:
+    static-locations: file:src/main/resources/static
+
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/escaperoom
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+#spring data JPA
+  jpa:
+    hibernate:
+      ddl-auto: none
+      format_sql: true
+      #show_sql: true
+
+#JPA log
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

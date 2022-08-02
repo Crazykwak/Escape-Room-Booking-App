@@ -3,6 +3,7 @@
 <head th:replace="fragments/header :: header"/>
 <body class="container">
 <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+<div th:replace="fragments/mainNav :: mainNav"/>
 
 <p sec:authorize="!isAuthenticated()">로그인 안됐지?</p>
 

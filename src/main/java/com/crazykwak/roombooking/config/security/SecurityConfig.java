@@ -34,8 +34,8 @@ public class SecurityConfig {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
+                .loginPage("/members/login")
+                .loginProcessingUrl("/members/login")
                 .successHandler(customLoginSuccessHandler);
 
         return http.build();

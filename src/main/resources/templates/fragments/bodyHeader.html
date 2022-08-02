@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security">
 <div class="header" th:fragment="bodyHeader">
-  <a href="/"><h3 class="text-muted talchul">탈출이</h3></a>
-
-  <nav class="nav nav-pills nav-justified">
-    <a class="nav-item nav-link active" th:href="@{/login}" sec:authorize="!isAuthenticated()">로그인</a>
-    <a class="nav-item nav-link active" th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
-
-<!--    <form class="nav-item nav-link active" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">-->
-<!--      <span class="text-white mr-2 mx-2" sec:authentication="username">사용자</span>-->
-<!--      <span class="text-white mr-2 mx-2" sec:authentication="principal.authorities">권한</span>-->
-<!--      <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>-->
-<!--    </form>-->
-
-    <a class="nav-item nav-link" href="/new">회원 가입</a>
-    <a class="nav-item nav-link" href="#">예약</a>
-  </nav>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-2">
+                <a class="logo" href="/">탈출이</a>
+            </div>
+            <div class="col-10 text-end">
+                <button type="button" class="btn btn-dark" id="btn-login" sec:authorize="!isAuthenticated()">로그인</button>
+                <button type="button" class="btn btn-dark" id="btn-logout" sec:authorize="isAuthenticated()">로그아웃</button>
+                <button type="button" class="btn btn-dark" id="btn-signup">회원가입</button>
+            </div>
+        </div>
+    </div>
 </div>

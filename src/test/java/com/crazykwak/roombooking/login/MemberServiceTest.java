@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import static com.crazykwak.roombooking.member.domain.MemberGrade.NOOB;
+import static com.crazykwak.roombooking.member.domain.MemberGrade.ROLE_NOOB;
 
 @SpringBootTest
 @Transactional
@@ -27,7 +27,7 @@ class MemberServiceTest {
 
     @BeforeEach
     public void before() {
-        Member user = new Member("plok", "1234", "email@mail.com", "성남", "01033332222", NOOB);
+        Member user = new Member("plok", "1234", "email@mail.com", "성남", "01033332222", ROLE_NOOB);
         LoginDTO loginDto = new LoginDTO(user.getUserId(), user.getPassword());
         user.setPassword(loginDto.getEncPwd());
         memberRepository.save(user);

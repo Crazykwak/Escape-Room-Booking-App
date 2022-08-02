@@ -21,6 +21,7 @@ public class PrincipalDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println("member = " + member);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(member.getMemberGrade().toString()));
         return authorities;
@@ -35,6 +36,8 @@ public class PrincipalDetails implements UserDetails {
     public String getUsername() {
         return member.getUsername();
     }
+
+    public String getUserId() { return member.getUserId();}
 
     @Override
     public boolean isAccountNonExpired() {

@@ -18,6 +18,7 @@ public class Member {
 
     @Column
     private String username;
+    private String userId;
     private String password;
     private String email;
     private String local;

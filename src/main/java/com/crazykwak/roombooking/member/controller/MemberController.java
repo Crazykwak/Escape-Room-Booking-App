@@ -26,6 +26,7 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/members")
 @Data
 public class MemberController {
 
