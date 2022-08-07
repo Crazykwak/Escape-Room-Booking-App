@@ -36,7 +36,11 @@ public class SecurityConfig {
                 .formLogin()
                 .loginPage("/members/login")
                 .loginProcessingUrl("/members/login")
-                .successHandler(customLoginSuccessHandler);
+                .successHandler(customLoginSuccessHandler)
+                .and()
+                .logout()
+                .logoutUrl("/members/logout")
+                .logoutSuccessUrl("/");
 
         return http.build();
     }
@@ -53,7 +57,6 @@ public class SecurityConfig {
             AuthenticationManager authenticationManager = builder.getSharedObject(AuthenticationManager.class);
             builder
                     .addFilter(new AuthenticationFilter(authenticationManager));
-//                    .addFilter(new JwtAuthorizationFilter(authenticationManager, memberRepository)); // 추가
 
         }
     }
